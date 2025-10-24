@@ -8,7 +8,7 @@ app = Flask(__name__)
 CORS(app)  # allow frontend (React) to access this API
 
 # Load your trained YOLO model
-MODEL_PATH = "/Users/vedansh/Downloads/Smart_cart_yolo/best.pt"  # <-- change this to your actual best.pt path
+MODEL_PATH = "best.pt" # <-- change this to your actual best.pt path
 model = YOLO(MODEL_PATH)
 
 @app.route("/")
