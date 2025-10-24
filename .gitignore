@@ -1,0 +1,17 @@
+# Virtual environment
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Model weights (add your own if needed)
+*.pt
+*.pth
+
+# Environment files
+.env
+
+# Uploads and temp
+uploads/
