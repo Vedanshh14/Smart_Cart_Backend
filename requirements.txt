@@ -1,14 +1,29 @@
-setuptools>=68.0
-wheel>=0.41.0
-build>=1.0.0
+# Core build tools
+setuptools>=70.0.0
+wheel>=0.42.0
 
-Flask==3.1.2
-flask-cors==6.0.1
+# Web framework
+Flask==3.1.0
+flask-cors==5.0.0
 gunicorn==23.0.0
-ultralytics==8.3.219
-torch==2.8.0
-torchvision==0.23.0
-Pillow==11.3.0
+
+# ML/Vision - Use CPU-only PyTorch for smaller size
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.5.0+cpu
+torchvision==0.20.0+cpu
+
+# YOLO
+ultralytics==8.3.0
+
+# Core dependencies - Use versions with pre-built wheels
 numpy==1.26.4
-scipy==1.12.0
+scipy==1.13.1
+Pillow==10.4.0
+
+# Utilities
 gdown==5.2.0
+```
+
+### 3. Add a `Procfile` (optional but recommended):
+```
+web: gunicorn app:app --bind 0.0.0.0:$PORT --workers 1 --timeout 120

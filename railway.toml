@@ -1,19 +1,7 @@
-# railway.toml
+[build]
+builder = "nixpacks"
 
-[project]
-name = "smartcart-backend"
-type = "service"
-
-[service]
-type = "web"
-name = "smartcart-backend"
-language = "python"
-
-# Python version
-pythonVersion = "3.12.10"   # Important! Use 3.12 for scipy wheels
-
-# Build command
-buildCommand = "pip install --upgrade pip && pip install -r requirements.txt"
-
-# Start command
-startCommand = "gunicorn app:app --bind 0.0.0.0:5000"
+[deploy]
+startCommand = "gunicorn app:app --bind 0.0.0.0:$PORT --workers 1 --timeout 120 --max-requests 100 --max-requests-jitter 10"
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 3

@@ -3,12 +3,13 @@ from flask_cors import CORS
 from ultralytics import YOLO
 from PIL import Image
 import io
+import os
 
 app = Flask(__name__)
 CORS(app)  # allow frontend (React) to access this API
 
 # Load your trained YOLO model
-MODEL_PATH = "best.pt" # <-- change this to your actual best.pt path
+MODEL_PATH = "best.pt"  # <-- change this to your actual best.pt path
 model = YOLO(MODEL_PATH)
 
 @app.route("/")
@@ -29,9 +30,9 @@ def predict():
 
     product_list = []
     for box in results[0].boxes:
-       cls = int(box.cls[0])
-       label = model.names[cls]
-       product_list.append(label)
+        cls = int(box.cls[0])
+        label = model.names[cls]
+        product_list.append(label)
     
     # Remove duplicates (optional)
     product_list = list(set(product_list))
@@ -42,4 +43,11 @@ def predict():
     })
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5001, debug=True)
+    # Get PORT from environment variable (Railway provides this)
+    # Default to 5001 for local development
+    port = int(os.environ.get("PORT", 5002))
+    
+    # Use debug=False in production (Railway sets this automatically)
+    debug = os.environ.get("FLASK_ENV") == "development"
+    
+    app.run(host="0.0.0.0", port=port, debug=debug)
