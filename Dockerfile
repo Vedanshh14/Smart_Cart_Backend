@@ -21,3 +21,6 @@ RUN pip install --no-cache-dir --upgrade pip && \
 COPY . .
 
 EXPOSE 8080
+
+# Use a fixed port - Railway will handle the mapping
+CMD ["gunicorn", "app:app", "--bind", "0.0.0.0:8080", "--workers", "1", "--timeout", "120"]
