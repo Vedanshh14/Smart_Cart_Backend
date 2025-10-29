@@ -1,0 +1,19 @@
+# railway.toml
+
+[project]
+name = "smartcart-backend"
+type = "service"
+
+[service]
+type = "web"
+name = "smartcart-backend"
+language = "python"
+
+# Python version
+pythonVersion = "3.12.10"   # Important! Use 3.12 for scipy wheels
+
+# Build command
+buildCommand = "pip install --upgrade pip && pip install -r requirements.txt"
+
+# Start command
+startCommand = "gunicorn app:app --bind 0.0.0.0:5000"
