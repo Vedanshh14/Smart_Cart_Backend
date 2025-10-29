@@ -7,7 +7,7 @@ Flask==3.1.0
 flask-cors==5.0.0
 gunicorn==23.0.0
 
-# ML/Vision - Use CPU-only PyTorch for smaller size
+# ML/Vision - Use CPU-only PyTorch
 --extra-index-url https://download.pytorch.org/whl/cpu
 torch==2.5.0+cpu
 torchvision==0.20.0+cpu
@@ -15,11 +15,12 @@ torchvision==0.20.0+cpu
 # YOLO
 ultralytics==8.3.0
 
-# Core dependencies - Use versions with pre-built wheels
+# OpenCV headless (no GUI dependencies)
+opencv-python-headless==4.10.0.84
+
+# Core dependencies
 numpy==1.26.4
-scipy==1.13.1
 Pillow==10.4.0
 
 # Utilities
 gdown==5.2.0
-
