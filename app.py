@@ -45,7 +45,7 @@ def predict():
 if __name__ == "__main__":
     # Get PORT from environment variable (Railway provides this)
     # Default to 5001 for local development
-    port = int(os.environ.get("PORT", 5002))
+    port = int(os.environ.get("PORT", 5001))
     
     # Use debug=False in production (Railway sets this automatically)
     debug = os.environ.get("FLASK_ENV") == "development"
