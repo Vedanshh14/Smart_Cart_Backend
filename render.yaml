@@ -3,5 +3,5 @@ services:
     name: smartcart-backend
     env: python
     pythonVersion: 3.11.6
-    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
+    buildCommand: pip install --upgrade pip setuptools wheel && pip install -r requirements.txt
     startCommand: gunicorn app:app --bind 0.0.0.0:5000
