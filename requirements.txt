@@ -22,8 +22,4 @@ Pillow==10.4.0
 
 # Utilities
 gdown==5.2.0
-```
 
-### 3. Add a `Procfile` (optional but recommended):
-```
-web: gunicorn app:app --bind 0.0.0.0:$PORT --workers 1 --timeout 120
