@@ -25,7 +25,7 @@ def predict():
     image = Image.open(io.BytesIO(file.read()))
 
     # Run prediction
-    results = model.predict(image, conf=0.25)  # you can tweak confidence threshold
+    results = model.predict(image, conf=0.10)  # you can tweak confidence threshold
     detections = results[0].boxes
 
     product_list = []
