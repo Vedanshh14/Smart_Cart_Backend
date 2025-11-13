@@ -25,7 +25,7 @@ def predict():
     image = Image.open(io.BytesIO(file.read()))
 
     # Run prediction
-    results = model.predict(image, conf=0.10)  # you can tweak confidence threshold
+    results = model.predict(image, conf=0.05)  # you can tweak confidence threshold
     detections = results[0].boxes
 
     product_list = []
@@ -35,7 +35,7 @@ def predict():
         product_list.append(label)
     
     # Remove duplicates (optional)
-    product_list = list(set(product_list))
+    # product_list = list(set(product_list))
 
     return jsonify({
         "message": "Prediction successful",
