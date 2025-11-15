@@ -116,7 +116,7 @@ def predict():
     product_list = suppress_duplicate_detections(
         detections, 
         model.names, 
-        iou_threshold=0.15  # Boxes with >15% overlap of same class = duplicates
+        iou_threshold=0.05  # Boxes with >15% overlap of same class = duplicates
     )
     
     return jsonify({
