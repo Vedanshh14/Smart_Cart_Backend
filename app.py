@@ -109,7 +109,7 @@ def predict():
     image = Image.open(io.BytesIO(file.read()))
     
     # Run YOLO inference
-    results = model.predict(image, conf=0.0)
+    results = model.predict(image, conf=0.10)
     detections = results[0].boxes
     
     # Apply duplicate suppression with 15% IoU threshold
